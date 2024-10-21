@@ -89,7 +89,7 @@ def stop_order(pair, stop_price, amount):
             print(f"Execute the stop order")
         break
 #limit order loop
-def limit_order (pair, limit_price, amount)
+def limit_order (pair, limit_price, amount):
 # ask for the ccy and stop price and amount
     base_currency = input("Enter the currency you want to exchange from (e.g., USD, EUR): ").upper()
     target_currency = input("Enter the currency you want to exchange to (e.g., EUR, GBP, JPY): ")
@@ -106,7 +106,7 @@ def save_data_to_csv(data, filename='exchange_rates.csv'):
     with open(filename, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Currency Pair', 'Rate'])
-         for currency, rate in data.items():
+        for currency, rate in data.items():
             writer.writerow([f"{base_currency} to {currency}", rate])
     print(f"Data saved to {filename}")
     save_data_to_csv(current_rates)
