@@ -1,5 +1,7 @@
 import numpy as np
 import yfinance as yf
+import csv
+import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from forex_python.converter import CurrencyRates, CurrencyCodes
 
@@ -50,6 +52,7 @@ def analyze_currency_trend(pair, days=30):
                        start=start_date.strftime('%Y-%m-%d'),
                        end=end_date.strftime('%Y-%m-%d'),
                        interval='1d')  # Daily data
+    
     if data.empty:
         print(f"No data available for {pair}.")
         return None
@@ -85,5 +88,28 @@ def stop_order(pair, stop_price, amount):
         if current_price >= stop_price:
             print(f"Execute the stop order")
         break
-
-
+#limit order loop
+def limit_order (pair, limit_price, amount)
+# ask for the ccy and stop price and amount
+    base_currency = input("Enter the currency you want to exchange from (e.g., USD, EUR): ").upper()
+    target_currency = input("Enter the currency you want to exchange to (e.g., EUR, GBP, JPY): ")
+    limit_price = input("Enter the limit price")
+    amount = input("Enter the amount")
+    while True: 
+        current_price = get_current_price(pair)
+        if limit_price <= current_price:
+            print (f" Execute the limit order")
+        break
+#data retrieved from external sources should be stored in the csv file 
+# data
+def save_data_to_csv(data, filename='exchange_rates.csv'):
+    with open(filename, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Currency Pair', 'Rate'])
+         for currency, rate in data.items():
+            writer.writerow([f"{base_currency} to {currency}", rate])
+    print(f"Data saved to {filename}")
+    save_data_to_csv(current_rates)
+#plot a chart showing rates across specific time frame 
+def plot_data_to_chart(data):
+    plt.plot(data)
