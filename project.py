@@ -58,9 +58,10 @@ def main():
             print("Thank you for using the Currency Converter! Goodbye!")
         else:
             print ("please try again, invalid choice. Input the number 1-7")
+main()            
 # 1. Ask for the currencies
 base_currency = input("Enter the currency you want to exchange from (e.g., USD, EUR): ").upper()
-target_currencies_input = input("Enter the currencies you want to exchange to (e.g., EUR, GBP, JPY): ")
+target_currencies_input = input("Enter the currencies you want to exchange to (e.g., EUR, GBP, JPY): ") #ERROR Failed to retrieve data for USD: Expecting value: line 1 column 1 (char 0)
 
 # Split the input string into a list; iterate over each element; eliminate whitespace
 target_currencies_list = target_currencies_input.split(',')
@@ -144,7 +145,13 @@ def get_forex_data(pair, days=30):
     return data
 
 # Example usage
-currency_pair = input("what currency pair do you want to analyse ")
+currency_pair = input("what currency pair do you want to analyse ") #ERROR
+#No data available for USDEUR.
+#[*********************100%***********************]  1 of 1 completed
+
+#1 Failed download:
+#['USDEUR']: YFPricesMissingError('$%ticker%: possibly delisted; no price data found  (period=30d) (Yahoo error = "No data found, symbol may be delisted")')
+
 data = get_forex_data(currency_pair)
 
 if data is not None:
