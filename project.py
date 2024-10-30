@@ -16,7 +16,7 @@ def menu():
     print("How can I assist you today?")
     print("1. View current exchange rates")
     print("2. Convert an amount between currencies")
-    print("3. Analyze historical data and receive signals")
+    print("3. Analyse historical data and receive signals")
     print("4. Place a stop order")
     print("5. Place a limit order")
     print("6. Save exchange rates to a CSV file")
